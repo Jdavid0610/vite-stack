@@ -1,0 +1,20 @@
+# pnpm supply-chain hardening — https://pnpm.io/settings
+#
+# Delay installs of freshly published versions so malware that is published and
+# unpublished within hours is never pulled in. 1440 = 24h is a pragmatic floor
+# for this fast-moving stack (much of it published in the last week); raise
+# toward 10080 (7 days) for a stricter delay once deps have aged past it.
+minimumReleaseAge: 1440
+
+# Refuse packages whose provenance/signature trust weakens between releases
+# (guards against package-takeover of an established name).
+trustPolicy: no-downgrade
+# ...but only enforce that on recent publishes. Established, years-old packages
+# (e.g. semver@6.3.1, a Babel transitive) predate provenance signing and would
+# otherwise be blocked forever; a real takeover shows up as a *fresh* publish,
+# which this window still covers.
+trustPolicyIgnoreAfter: 1440
+
+# Block transitive deps from git:/file:/tarball URLs that bypass the registry
+# (recent-pnpm default; pinned here so it can't silently regress).
+blockExoticSubdeps: true

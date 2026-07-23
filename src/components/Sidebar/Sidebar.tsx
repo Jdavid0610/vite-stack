@@ -7,7 +7,7 @@ const Sidebar = () => {
   const navRoutes = routes.filter((r) => r.routeEnabled);
 
   return (
-    <aside className="w-64 min-h-screen bg-gray-900 text-white flex flex-col p-4">
+    <aside className="w-64 min-h-dvh bg-gray-900 text-white flex flex-col p-4">
       <div className="text-xl font-bold mb-8 px-2">App</div>
 
       <nav className="flex flex-col gap-1 flex-1">
@@ -30,6 +30,7 @@ const Sidebar = () => {
       </nav>
 
       <button
+        type="button"
         onClick={logout}
         className="mt-4 text-gray-400 hover:text-white text-sm px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors text-left"
       >

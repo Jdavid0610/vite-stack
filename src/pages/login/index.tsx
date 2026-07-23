@@ -5,16 +5,17 @@ const Login = () => {
   const { register, formState: { errors } } = form;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-dvh flex items-center justify-center bg-gray-50">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
         <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center">Sign In</h1>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
+              id="email"
               {...register("email")}
               type="email"
               placeholder="you@example.com"
@@ -26,10 +27,11 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
+              id="password"
               {...register("password")}
               type="password"
               placeholder="••••••••"

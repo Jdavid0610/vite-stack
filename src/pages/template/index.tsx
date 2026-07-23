@@ -234,7 +234,7 @@ const envVars = [
 
 const Template = () => {
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-dvh bg-gray-50 font-sans">
       {/* Hero */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 py-16 text-center">
@@ -292,8 +292,8 @@ const Template = () => {
                 </div>
                 <div className="px-4 py-4">
                   <ul className="space-y-1.5">
-                    {conv.structure.map((item, i) => (
-                      <li key={i} className="flex items-baseline gap-2">
+                    {conv.structure.map((item) => (
+                      <li key={item.name} className="flex items-baseline gap-2">
                         <code className={`text-xs font-mono whitespace-pre ${item.type === "folder" ? "text-gray-700 font-semibold" : "text-gray-600"}`}>
                           {item.name}
                         </code>
